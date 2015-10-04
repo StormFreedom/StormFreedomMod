@@ -19,7 +19,8 @@ public enum TFM_PlayerRank
     CONSOLE("The " + ChatColor.DARK_PURPLE + "Console", ChatColor.DARK_PURPLE + "[Console]"),
     LEADDEV("The " + ChatColor.DARK_PURPLE + "Lead Developer", ChatColor.DARK_PURPLE + "[Lead Dev]"),
     MODERATOR("a " + ChatColor.RED + "Moderator", ChatColor.DARK_RED + "[Moderator]"),
-    SYS("a " + ChatColor.DARK_RED + "System Admin", ChatColor.DARK_RED + "[Sys-Admin]");
+    SYS("a " + ChatColor.DARK_RED + "System Admin", ChatColor.DARK_RED + "[Sys-Admin]"),
+    WEBDEV("a " + ChatColor.DARK_PURPLE + "Web Developer", ChatColor.DARK_PURPLE + "[Web Developer]");
    
     private final String loginMessage;
     private final String prefix;
@@ -88,11 +89,15 @@ public enum TFM_PlayerRank
             {
                 return MODERATOR;
             }
-            else if (TFM_ConfigEntry.SERVER_LEADDEV.getList().contains(sender.getName()))
+            if (TFM_ConfigEntry.SERVER_LEADDEV.getList().contains(sender.getName()))
             {
                 return LEADDEV;
             }
-            if (TFM_ConfigEntry.SERVER_SYSADMINS.getList().contains(sender.getName()))
+            if (TFM_ConfigEntry.SERVER_WEBDEV.getList().contains(sender.getName()))
+            {
+                return WEBDEV;
+            }
+                        if (TFM_ConfigEntry.SERVER_SYSADMINS.getList().contains(sender.getName()))
             {
                 return SYS;
             }

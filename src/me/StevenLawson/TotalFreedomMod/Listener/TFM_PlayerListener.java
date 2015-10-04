@@ -884,11 +884,17 @@ public class TFM_PlayerListener implements Listener
                 name = ChatColor.RED + name;
                 TFM_PlayerData.getPlayerData(player).setTag("&8[&cModerator&8]");
             }
+            else if (TFM_ConfigEntry.SERVER_WEBDEV.getList().contains(name))
+            {
+                name = ChatColor.DARK_PURPLE + name;
+                TFM_PlayerData.getPlayerData(player).setTag("&8[&5Web Developer&8]");
+            }
             else if (TFM_AdminList.isSeniorAdmin(player))
             {
                 name = ChatColor.LIGHT_PURPLE + name;
                 TFM_PlayerData.getPlayerData(player).setTag("&8[&dSenior Admin&8]");
             }
+            
             else if (TFM_AdminList.isTelnetAdmin(player, true))
             {
                 name = ChatColor.DARK_GREEN + name;
@@ -900,7 +906,6 @@ public class TFM_PlayerListener implements Listener
                 TFM_PlayerData.getPlayerData(player).setTag("&8[&BSuper Admin&8]");
             }
             player.sendMessage(ChatColor.BLUE + "Server is running StormFreedomMod made by xEpson.");
-            player.sendMessage(ChatColor.BLUE + "To apply for admin, type /ai");
             
         }
 
